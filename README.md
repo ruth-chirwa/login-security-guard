@@ -6,7 +6,7 @@ A Node.js API that simulates a login system protected by rate limiting, brute-fo
 
 ```bash
 npm install
-npm start
+npm run
 ```
 
 Open http://localhost:3000 to see the dashboard.
@@ -76,11 +76,11 @@ Open http://localhost:3000 to see the dashboard.
 
 ```
 login-security-guard/
-├── index.js              # Main server (Person A)
+├── index.js              # Main server
 ├── src/
-│   ├── users.js          # Mock user DB + auth (Person A)
-│   ├── rateLimiter.js    # Rate limiting middleware (Person B)
-│   ├── tracker.js        # Attempt tracking + detection (Person C)
+│   ├── users.js          # Mock user DB + auth
+│   ├── rateLimiter.js    # Rate limiting middleware 
+│   ├── tracker.js        # Attempt tracking + detection
 │   └── logger.js         # Logging system (Person D)
 ├── public/
 │   └── index.html        # Security dashboard

@@ -16,7 +16,7 @@ app.use(globalLimiter);
 // ─── POST /login ──────────────────────────────────────────────────────────────
 app.post("/login", loginLimiter, (req, res) => {
   const { username, password } = req.body;
-  const ip = req.ip || req.connection.remoteAddress;
+  const ip = (req.ip || req.connection.remoteAddress).replace(/^::ffff:/, '');
 
   // Input validation
   if (!username || !password) {
@@ -66,7 +66,7 @@ app.post("/login", loginLimiter, (req, res) => {
     });
   }
 
-  // ✅ Successful login
+  // Successful login
   resetAttempts(ip); // Clear failed attempts on success
   log("SUCCESS", "LOGIN_SUCCESS", { ip, username, role: result.role });
 
